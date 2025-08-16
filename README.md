@@ -23,9 +23,9 @@ Firmware and wiring directions are provided to you 'as is' and without any warra
 
 There's adapters for: <br/>
 - [Snes](#usb-to-snes-adapter)
-- [Megadrive](usb-to-megadrive-adapter)
-- [Saturn](usb-to-saturn-adapter)
-
+- [Megadrive](#usb-to-megadrive-adapter)
+- [Saturn](#usb-to-saturn-adapter)
+- [PSX](#usb-to-psx-adapter)
 
 ## USB to SNES Adapter
 
