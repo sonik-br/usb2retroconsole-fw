@@ -24,10 +24,10 @@ Firmware and wiring directions are provided to you 'as is' and without any warra
 There's adapters for: <br/>
 - [Snes](#usb-to-snes-adapter)
 - [Megadrive](usb-to-megadrive-adapter)
+- [Saturn](usb-to-saturn-adapter)
 
 
 ## USB to SNES Adapter
-
 
 | SNES     | GPIO | Other                     |
 |----------|------|---------------------------|
@@ -66,3 +66,37 @@ Modes
 - 3 button pad (led blink fast)
 - Twinstick for xenocrisis (led blink slow)
 - Cyberstick (led blink slow). This mode is bugged!
+
+## USB to Saturn Adapter
+
+| Saturn | GPIO |
+|--------|------|
+| D0     | 0    |
+| D1     | 1    |
+| D2     | 2    |
+| D3     | 3    |
+| TL     | 4    |
+| TR     | 5    |
+| TH     | 6    |
+| VCC    | VBUS |
+| GND    | GND  |
+
+**All data pins must be level shifted!**<br/>
+Pico's GPIO runs at 3.3v and megadrive runs at 5v.
+
+Usable mode depends on the input controller type:
+
+- Digital Input
+  > Digital (led on)
+- Dual Stick Input
+  > 3D Digital (led on)<br/>
+  > 3D Analog (led blink fast)<br/>
+  > Twinstick (led blink slow)<br/>
+- Racing Wheel Input
+  > Wheel (led on)<br/>
+  > 3D Analog (led blink fast)<br/>
+- Joystick Input
+  > Mission Stick 3 Axis (led on)<br/>
+  > 3D Analog (led blink fast)<br/>
+- Mouse Input
+  > Shuttle Mouse (led on)
