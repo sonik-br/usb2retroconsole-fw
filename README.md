@@ -82,7 +82,7 @@ Modes
 | GND    | GND  |
 
 **All data pins must be level shifted!**<br/>
-Pico's GPIO runs at 3.3v and megadrive runs at 5v.
+Pico's GPIO runs at 3.3v and saturn runs at 5v.
 
 Usable mode depends on the input controller type:
 
@@ -100,3 +100,47 @@ Usable mode depends on the input controller type:
   > 3D Analog (led blink fast)<br/>
 - Mouse Input
   > Shuttle Mouse (led on)
+
+
+
+
+## USB to PSX Adapter
+
+| PSX      | GPIO  | Other                    |
+|----------|-------|--------------------------|
+| 4 - GND  | GND   |                          |
+| 5 - 3.3V | VBUS* | **Check details bellow** |
+| 1 - DAT  | 11    |                          |
+| 2 - CMD  | 12    |                          |
+| 3 - 9V   | VBUS* | **Check details bellow** |
+| 6 - ATT  | 21    |                          |
+| 7 - CLK  | 10    |                          |
+| 8 - INT  | N/C   |                          |
+| 9 - ACK  | 22    |                          |
+
+USB devices requires 5v to operate.<br/>
+PS1 and PS2 consoles supply 3.3v and 9v (7.5v or 9v, not sure) at the controller port.
+Must convert 3.3v or 9v to 5v.<br/>
+Select one pin to use and do not connect the other. Either pin 3 (9v) or pin 5 (3.3v), then step up or down the voltage to 5v.<br/>
+I believe using pin 9 is ideal, as it's the pin that drives the rumble motors on a dualshock controller.
+
+Do not connect it to a multitap.
+
+It should work on PS1 and PS2 consoles. But was only tested on PS2.<br/>
+It might be incompatible with memorycards on PS1 if connected to the same input port. Be advised that card data corruption might happen.
+
+Usable mode depends on the input controller type:
+
+- Digital Input
+  > Digital (led on)
+- Dual Stick Input
+  > DualShock 2 (digital) (led on)<br/>
+  > DualShock 2 (analog) (led blink fast)<br/>
+  > Analog stick (led blink slowsest)<br/>
+  > Negcon (led blink slow)<br/>
+- Racing Wheel Input
+  > Negcon (led blink slow)<br/>
+- Joystick Input
+  > Analog stick (led blink slowsest)<br/>
+- Mouse Input
+  > Mouse (untested) (led on)
